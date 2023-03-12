@@ -1,6 +1,6 @@
 Vivado Simulator 2020.1
 Copyright 1986-1999, 2001-2020 Xilinx, Inc. All Rights Reserved.
-Running: C:/Xilinx/Vivado/2020.1/bin/unwrapped/win64.o/xelab.exe -wto 4ca51996935344e19eea88244fc48e45 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot bcd_to_7seg_tb_behav xil_defaultlib.bcd_to_7seg_tb -log elaborate.log 
+Running: C:/Xilinx/Vivado/2020.1/bin/unwrapped/win64.o/xelab.exe -wto 4ca51996935344e19eea88244fc48e45 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot temp_counter_tb_behav xil_defaultlib.temp_counter_tb -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
 Completed static elaboration
@@ -10,6 +10,7 @@ Time Resolution for simulation is 1ps
 Compiling package std.standard
 Compiling package std.textio
 Compiling package ieee.std_logic_1164
-Compiling architecture behavioral of entity xil_defaultlib.bcd_to_7seg [bcd_to_7seg_default]
-Compiling architecture behavioral of entity xil_defaultlib.bcd_to_7seg_tb
-Built simulation snapshot bcd_to_7seg_tb_behav
+Compiling package ieee.numeric_std
+Compiling architecture behavioral of entity xil_defaultlib.temp_counter [temp_counter_default]
+Compiling architecture behavioral of entity xil_defaultlib.temp_counter_tb
+Built simulation snapshot temp_counter_tb_behav
