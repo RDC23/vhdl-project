@@ -44,14 +44,14 @@ architecture Behavioral of binary_to_bcd is
 
 begin
 --sensitive to a change in input data
-convert process(temp_in):
+convert : process(temp_in)
     variable intermediate : STD_LOGIC_VECTOR(5 downto 0);
-    variable scratch_space : unsigned(7 downto 0); --need to perfom arithmetic operations
-begin:
+    variable scratch_space : unsigned(7 downto 0) := (others=>'0'); --need to perfom arithmetic operations
+begin
     scratch_space := (others => '0');
     intermediate := temp_in;
     --n = input width iterations
-    for i in range 0 to 5 loop
+    for i in 0 to 5 loop
         --add 3 to each nibble of scratch space if it is >=5 to correct carry...
         if scratch_space(3 downto 0) >= 5 then
             scratch_space(3 downto 0) := scratch_space(3 downto 0) + 3;
@@ -70,6 +70,6 @@ begin:
     temp_out_tens <= STD_LOGIC_VECTOR(scratch_space(7 downto 4));
     temp_out_ones <= STD_LOGIC_VECTOR(scratch_space(3 downto 0));
 
-end convert process;
+end process convert;
 
 end Behavioral;
