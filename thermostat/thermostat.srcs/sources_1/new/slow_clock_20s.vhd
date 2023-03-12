@@ -34,6 +34,7 @@ use IEEE.numeric_std.all;
 
 entity slow_clocks is
     Port ( clk : in STD_LOGIC;
+           clk_enable : in STD_LOGIC;
            clk_20s : out STD_LOGIC;
            clk_12s : out STD_LOGIC);
 end slow_clocks;
@@ -62,20 +63,22 @@ variable counter_20s : unsigned(29 downto 0) := (others => '0');
 
 begin
     --increment both the counter
-    if (rising_edge(clk)) then 
-        counter_12s := counter_12s + 1;
-        counter_20s := counter_20s + 1;
-        
-        --check count and invert output clocks if they equal max_count-1
-        if (counter_12s = max_count_12s - 1) then
-            clk_12_out <= not clk_12_out;
-            counter_12s := to_unsigned(0,30);  
-        end if;
-        
-        if (counter_20s = max_count_20s - 1) then
-            clk_20_out <= not clk_20_out;
-            counter_20s := to_unsigned(0,30);  
-        end if;           
+    if (rising_edge(clk)) then
+        if (clk_enable = '1') then 
+            counter_12s := counter_12s + 1;
+            counter_20s := counter_20s + 1;
+            
+            --check count and invert output clocks if they equal max_count-1
+            if (counter_12s = max_count_12s - 1) then
+                clk_12_out <= not clk_12_out;
+                counter_12s := to_unsigned(0,30);  
+            end if;
+            
+            if (counter_20s = max_count_20s - 1) then
+                clk_20_out <= not clk_20_out;
+                counter_20s := to_unsigned(0,30);  
+            end if;  
+        end if;         
     end if;
  
 end process;

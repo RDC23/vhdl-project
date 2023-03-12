@@ -1,2 +1,2 @@
-INFO: [VRFC 10-163] Analyzing VHDL file "H:/vhdl-project/thermostat/thermostat.srcs/sim_1/imports/new/slow_clocks_tb.vhd" into library xil_defaultlib
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sim_1/imports/new/slow_clocks_tb.vhd" into library xil_defaultlib
 INFO: [VRFC 10-3107] analyzing entity 'slow_clocks_tb'
