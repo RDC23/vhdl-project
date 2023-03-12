@@ -48,9 +48,9 @@ component temp_counter is
 end component temp_counter;
 
 --declare signals
-signal is_heating, slow_clk_20, slow_clk_12 : std_logic := '0';
-signal min_temp : std_logic_vector(5 downto 0) := (others=>'0');
-signal cur_temp : std_logic_vector(5 downto 0) := (others=>'0');
+signal is_heating, slow_clk_20, slow_clk_12 : std_logic;
+signal min_temp, cur_temp : std_logic_vector(5 downto 0);
+
 begin
 
 --instantiate component

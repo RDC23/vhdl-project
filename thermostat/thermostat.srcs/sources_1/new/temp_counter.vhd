@@ -41,41 +41,33 @@ entity temp_counter is
 end temp_counter;
 
 architecture Behavioral of temp_counter is
---internal count temp to allow current temp to be accessed by processes
-signal count_temp : unsigned(5 downto 0) := "000100";
+
 begin
 
---process to heat up if the current temperature is below or equal to threshold
-heat_on : process(slow_clk_12)
+--process to either increment or decrement temp in response to time changes (signified rising clock edges)
+delta_t : process(slow_clk_12, slow_clk_20)
+
+--op_temp tracks the current (output) temperature and is modfied to maintain equilibrium based on user-set minimum 
+variable op_temp : unsigned(5 downto 0) := (others=>'0');
+
 begin
-   if (count_temp <= unsigned(min_temp)) then
-        if (rising_edge(slow_clk_12)) then
-            count_temp <= count_temp + 1;
+   --heat up process if the current temp is below minimum
+   if (rising_edge(slow_clk_12)) then
+        if (op_temp <= unsigned(min_temp)) then
+            op_temp := op_temp + 1;
+            is_heating <= '1';
         end if;
-   end if;   
-end process heat_on;
-
---process to cool down if the current temperature is above threshold
-cool_down : process(slow_clk_20)
-begin
-   if (count_temp > unsigned(min_temp)) then
-        if (rising_edge(slow_clk_20)) then
-            count_temp <= count_temp -1;
+   --cool down process if te current temp is above minimum
+   elsif (rising_edge(slow_clk_20)) then
+        if (op_temp > unsigned(min_temp)) then
+            op_temp := op_temp - 1;
+            is_heating <= '0';
         end if;
-   end if;   
-end process cool_down;
-
-display : process(count_temp) is
-begin
-    if (count_temp >= unsigned(min_temp)) then
-        is_heating <= '1';
-    else
-        is_heating <= '0';
-    end if;
-end process display;
-
-cur_temp <= std_logic_vector(count_temp);
-        
+  end if; 
+  --assign the local op_temp variable to the global output temperature
+  cur_temp <= std_logic_vector(op_temp);
+  
+end process delta_t;   
 
 
 end Behavioral;
