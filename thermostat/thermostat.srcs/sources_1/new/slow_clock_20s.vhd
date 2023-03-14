@@ -6,9 +6,9 @@
 -- Design Name: 
 -- Module Name: slow_clock_20s - Behavioral
 -- Project Name: 
--- Target Devices: 
+-- Target Devices: Basys3
 -- Tool Versions: 
--- Description: 
+-- Description: Takes an input clock signal and converts it to a signal with 
 -- 
 -- Dependencies: 
 -- 
@@ -34,7 +34,7 @@ use IEEE.numeric_std.all;
 
 entity slow_clocks is
     Port ( clk : in STD_LOGIC;
-           clk_enable : in STD_LOGIC;
+           --clk_enable : in STD_LOGIC;
            clk_20s : out STD_LOGIC;
            clk_12s : out STD_LOGIC);
 end slow_clocks;
@@ -64,7 +64,7 @@ variable counter_20s : unsigned(29 downto 0) := (others => '0');
 begin
     --increment both the counter
     if (rising_edge(clk)) then
-        if (clk_enable = '1') then 
+      --  if (clk_enable = '1') then 
             counter_12s := counter_12s + 1;
             counter_20s := counter_20s + 1;
             
@@ -79,7 +79,7 @@ begin
                 counter_20s := to_unsigned(0,30);  
             end if;  
         end if;         
-    end if;
+   -- end if;
  
 end process;
 
