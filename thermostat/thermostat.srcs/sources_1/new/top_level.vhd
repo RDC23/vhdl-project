@@ -98,12 +98,12 @@ SEG_GEN: for i in 0 to 3 generate
         Port Map (bcd=>bcd_cur_tens, seven_seg=>curtemp_tens);
     end generate;
     
-    SEG_GEN2 : if i = 3 generate --generate the bcd -> 7 seg for the 'ones' of the preset temperature
+    SEG_GEN2 : if i = 2 generate --generate the bcd -> 7 seg for the 'ones' of the preset temperature
         PRE_ONES : bcd_to_7seg
         Port Map (bcd=>bcd_preset_ones, seven_seg=>preset_ones);
     end generate;
     
-    SEG_GEN3 : if i = 4 generate --generate the bcd -> 7 seg for the 'tens' of the preset temperature
+    SEG_GEN3 : if i = 3 generate --generate the bcd -> 7 seg for the 'tens' of the preset temperature
         PRE_TENS : bcd_to_7seg
         Port Map (bcd=>bcd_preset_tens, seven_seg=>preset_tens);
     end generate;    
