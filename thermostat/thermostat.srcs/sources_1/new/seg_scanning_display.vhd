@@ -18,6 +18,10 @@ signal clk_1kHz : STD_LOGIC := '0';--internal clock for refresh rate
 signal anode : STD_LOGIC_VECTOR (3 downto 0) := "0000";
 signal cathode : STD_LOGIC_VECTOR (6 downto 0) := (others=>'0');
 
+--count constant
+constant maxval : INTEGER := 5;
+--constant maxval : INTEGER := 50000; --uncomment this for synthesis
+
 begin
 --concurrent transfer of internal signals to outputs
 anode_out <= anode;
@@ -31,7 +35,7 @@ begin
             count := count + 1;
     end if;
 
-    if (count = 50000-1) then
+    if (count = maxval-1) then
         clk_1kHz <= not clk_1kHz; --invert clock
         count := 0; --reset count
     end if;

@@ -1,2 +1,2 @@
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sim_1/new/top_level_tb.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'top_level_tb'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sources_1/new/seg_scanning_display.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'seg_scanning_display'

@@ -101,6 +101,9 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
+read_xdc C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/constrs_1/imports/Downloads/Basys3_Master.xdc
+set_property used_in_implementation false [get_files C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/constrs_1/imports/Downloads/Basys3_Master.xdc]
+
 set_param ips.enableIPCacheLiteLoad 1
 close [open __synthesis_is_running__ w]
 
