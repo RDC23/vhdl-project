@@ -59,7 +59,7 @@ DUT : temp_counter Port Map (is_heating => is_heating, slow_clk_20 => slow_clk_2
 --create test 20s clock
 clk_20 : process
 begin
-    while (now <= 10 us) loop
+    while (now <= 1 ms) loop
         slow_clk_20 <= '1'; wait for 10 ns;
         slow_clk_20 <= '0'; wait for 10 ns;    
     end loop;
@@ -69,7 +69,7 @@ end process clk_20;
 --create test 12s clock
 clk_12 : process
 begin
-    while (now <= 10 us) loop
+    while (now <= 1 ms) loop
         slow_clk_12 <= '1'; wait for 6 ns;
         slow_clk_12 <= '0'; wait for 6 ns;    
     end loop;

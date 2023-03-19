@@ -43,7 +43,7 @@ architecture Behavioral of slow_clocks is
 --constants
 
 --constant default_clk : integer := 100000000; -- default Basys 3 clock rate of 100 MHz --use this clock for synthesis
-constant default_clk : integer := 5; -- use this for simulation
+constant default_clk : integer := 15; -- use this for simulation
 
 constant max_count_12s : integer := default_clk * 6; -- 12s clock period 50% duty cycle
 constant max_count_20s : integer := default_clk * 10; -- 20s clock period 50% duty cycle

@@ -43,6 +43,7 @@ end temp_counter;
 architecture Behavioral of temp_counter is
 
 begin
+--asssign default is_heating
 
 --process to either increment or decrement temp in response to time changes (signified rising clock edges)
 delta_t : process(slow_clk_12, slow_clk_20)

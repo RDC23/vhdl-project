@@ -41,23 +41,26 @@ component top_level is
     Port ( clk : in STD_LOGIC;
            heat_on : out STD_LOGIC; -- boolean to light LED
            temp_preset : in STD_LOGIC_VECTOR (5 downto 0);
-           curtemp_ones, curtemp_tens, preset_ones, preset_tens : out STD_LOGIC_VECTOR (6 downto 0)); 
+           anode_out : out STD_LOGIC_VECTOR (3 downto 0);
+           cathode_out : out STD_LOGIC_VECTOR (6 downto 0)
+           );
 end component top_level;
 
 --declare signals
 signal temp_preset : STD_LOGIC_VECTOR (5 downto 0);
 signal clk, heat_on : STD_LOGIC := '0';
-signal curtemp_ones, curtemp_tens, preset_ones, preset_tens : STD_LOGIC_VECTOR (6 downto 0) ;
+signal cathode_out : STD_LOGIC_VECTOR (6 downto 0) ;
+signal anode_out : STD_LOGIC_VECTOR (3 downto 0);
 
 begin
 --instantiate the DUT
 DUT : top_level 
-Port Map(temp_preset=>temp_preset, clk=>clk, heat_on=>heat_on, curtemp_ones=>curtemp_ones, curtemp_tens=>curtemp_tens, preset_ones=>preset_ones, preset_tens=>preset_tens);
+Port Map(temp_preset=>temp_preset, clk=>clk, heat_on=>heat_on, anode_out=>anode_out, cathode_out=>cathode_out);
 
 --create test stimuli
 clk_gen : process 
 begin
-    while (now<10us)loop
+    while (now<1 ms)loop
         clk<='0'; wait for 10 ns;
         clk<='1'; wait for 10 ns;
     end loop;

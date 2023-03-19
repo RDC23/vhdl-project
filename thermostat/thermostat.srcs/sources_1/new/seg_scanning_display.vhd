@@ -19,8 +19,8 @@ signal anode : STD_LOGIC_VECTOR (3 downto 0) := "0000";
 signal cathode : STD_LOGIC_VECTOR (6 downto 0) := (others=>'0');
 
 --count constant
-constant maxval : INTEGER := 5;
---constant maxval : INTEGER := 50000; --uncomment this for synthesis
+constant maxval : INTEGER := 2;
+--constant maxval : INTEGER := 50000; --uncomment this for synthesis and comment out line above
 
 begin
 --concurrent transfer of internal signals to outputs

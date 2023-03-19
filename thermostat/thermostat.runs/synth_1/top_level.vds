@@ -2,8 +2,8 @@
 # Vivado v2020.1 (64-bit)
 # SW Build 2902540 on Wed May 27 19:54:49 MDT 2020
 # IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
-# Start of session at: Sat Mar 18 14:55:37 2023
-# Process ID: 1612
+# Start of session at: Sun Mar 19 09:06:42 2023
+# Process ID: 1908
 # Current directory: C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.runs/synth_1
 # Command line: vivado.exe -log top_level.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top_level.tcl
 # Log file: C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.runs/synth_1/top_level.vds
@@ -17,42 +17,51 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t
 INFO: [Device 21-403] Loading part xc7a35tcpg236-1
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 2960
+INFO: [Synth 8-7075] Helper process launched with PID 13084
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1068.258 ; gain = 0.000
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1073.172 ; gain = 0.000
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'top_level' [C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sources_1/new/top_level.vhd:41]
-INFO: [Synth 8-3491] module 'slow_clocks' declared at 'C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sources_1/new/slow_clock_20s.vhd:35' bound to instance 'CLK_DIV' of component 'slow_clocks' [C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sources_1/new/top_level.vhd:80]
+INFO: [Synth 8-638] synthesizing module 'top_level' [C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sources_1/new/top_level.vhd:42]
+INFO: [Synth 8-3491] module 'slow_clocks' declared at 'C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sources_1/new/slow_clock_20s.vhd:35' bound to instance 'CLK_DIV' of component 'slow_clocks' [C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sources_1/new/top_level.vhd:93]
 INFO: [Synth 8-638] synthesizing module 'slow_clocks' [C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sources_1/new/slow_clock_20s.vhd:42]
 INFO: [Synth 8-256] done synthesizing module 'slow_clocks' (1#1) [C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sources_1/new/slow_clock_20s.vhd:42]
-INFO: [Synth 8-3491] module 'temp_counter' declared at 'C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sources_1/new/temp_counter.vhd:35' bound to instance 'TEMP_COUNT' of component 'temp_counter' [C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sources_1/new/top_level.vhd:82]
+INFO: [Synth 8-3491] module 'temp_counter' declared at 'C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sources_1/new/temp_counter.vhd:35' bound to instance 'TEMP_COUNT' of component 'temp_counter' [C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sources_1/new/top_level.vhd:95]
 INFO: [Synth 8-638] synthesizing module 'temp_counter' [C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sources_1/new/temp_counter.vhd:43]
-WARNING: [Synth 8-614] signal 'min_temp' is read in the process but is not in the sensitivity list [C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sources_1/new/temp_counter.vhd:48]
+WARNING: [Synth 8-614] signal 'min_temp' is read in the process but is not in the sensitivity list [C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sources_1/new/temp_counter.vhd:49]
 INFO: [Synth 8-256] done synthesizing module 'temp_counter' (2#1) [C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sources_1/new/temp_counter.vhd:43]
-INFO: [Synth 8-3491] module 'binary_to_bcd' declared at 'C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sources_1/new/binary_to_bcd.vhd:35' bound to instance 'CURTEMP_BINARY_TO_BCD' of component 'binary_to_bcd' [C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sources_1/new/top_level.vhd:84]
+INFO: [Synth 8-3491] module 'binary_to_bcd' declared at 'C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sources_1/new/binary_to_bcd.vhd:35' bound to instance 'CURTEMP_BINARY_TO_BCD' of component 'binary_to_bcd' [C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sources_1/new/top_level.vhd:97]
 INFO: [Synth 8-638] synthesizing module 'binary_to_bcd' [C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sources_1/new/binary_to_bcd.vhd:43]
 INFO: [Synth 8-256] done synthesizing module 'binary_to_bcd' (3#1) [C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sources_1/new/binary_to_bcd.vhd:43]
-INFO: [Synth 8-3491] module 'binary_to_bcd' declared at 'C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sources_1/new/binary_to_bcd.vhd:35' bound to instance 'PRESET_BINARY_TO_BCD' of component 'binary_to_bcd' [C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sources_1/new/top_level.vhd:86]
-INFO: [Synth 8-3491] module 'bcd_to_7seg' declared at 'C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sources_1/new/bcd_to_7seg.vhd:36' bound to instance 'CUR_ONES' of component 'bcd_to_7seg' [C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sources_1/new/top_level.vhd:92]
+INFO: [Synth 8-3491] module 'binary_to_bcd' declared at 'C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sources_1/new/binary_to_bcd.vhd:35' bound to instance 'PRESET_BINARY_TO_BCD' of component 'binary_to_bcd' [C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sources_1/new/top_level.vhd:99]
+INFO: [Synth 8-3491] module 'bcd_to_7seg' declared at 'C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sources_1/new/bcd_to_7seg.vhd:36' bound to instance 'CUR_ONES' of component 'bcd_to_7seg' [C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sources_1/new/top_level.vhd:105]
 INFO: [Synth 8-638] synthesizing module 'bcd_to_7seg' [C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sources_1/new/bcd_to_7seg.vhd:41]
 INFO: [Synth 8-256] done synthesizing module 'bcd_to_7seg' (4#1) [C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sources_1/new/bcd_to_7seg.vhd:41]
-INFO: [Synth 8-3491] module 'bcd_to_7seg' declared at 'C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sources_1/new/bcd_to_7seg.vhd:36' bound to instance 'CUR_TENS' of component 'bcd_to_7seg' [C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sources_1/new/top_level.vhd:97]
-INFO: [Synth 8-3491] module 'bcd_to_7seg' declared at 'C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sources_1/new/bcd_to_7seg.vhd:36' bound to instance 'PRE_ONES' of component 'bcd_to_7seg' [C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sources_1/new/top_level.vhd:102]
-INFO: [Synth 8-3491] module 'bcd_to_7seg' declared at 'C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sources_1/new/bcd_to_7seg.vhd:36' bound to instance 'PRE_TENS' of component 'bcd_to_7seg' [C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sources_1/new/top_level.vhd:107]
-INFO: [Synth 8-256] done synthesizing module 'top_level' (5#1) [C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sources_1/new/top_level.vhd:41]
+INFO: [Synth 8-3491] module 'bcd_to_7seg' declared at 'C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sources_1/new/bcd_to_7seg.vhd:36' bound to instance 'CUR_TENS' of component 'bcd_to_7seg' [C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sources_1/new/top_level.vhd:110]
+INFO: [Synth 8-3491] module 'bcd_to_7seg' declared at 'C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sources_1/new/bcd_to_7seg.vhd:36' bound to instance 'PRE_ONES' of component 'bcd_to_7seg' [C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sources_1/new/top_level.vhd:115]
+INFO: [Synth 8-3491] module 'bcd_to_7seg' declared at 'C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sources_1/new/bcd_to_7seg.vhd:36' bound to instance 'PRE_TENS' of component 'bcd_to_7seg' [C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sources_1/new/top_level.vhd:120]
+INFO: [Synth 8-3491] module 'seg_scanning_display' declared at 'C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sources_1/new/seg_scanning_display.vhd:4' bound to instance 'SCANNER' of component 'seg_scanning_display' [C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sources_1/new/top_level.vhd:125]
+INFO: [Synth 8-638] synthesizing module 'seg_scanning_display' [C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sources_1/new/seg_scanning_display.vhd:14]
+WARNING: [Synth 8-614] signal 'clk_1kHz' is read in the process but is not in the sensitivity list [C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sources_1/new/seg_scanning_display.vhd:30]
+WARNING: [Synth 8-614] signal 'curtemp_tens' is read in the process but is not in the sensitivity list [C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sources_1/new/seg_scanning_display.vhd:70]
+WARNING: [Synth 8-614] signal 'curtemp_ones' is read in the process but is not in the sensitivity list [C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sources_1/new/seg_scanning_display.vhd:70]
+WARNING: [Synth 8-614] signal 'preset_tens' is read in the process but is not in the sensitivity list [C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sources_1/new/seg_scanning_display.vhd:70]
+WARNING: [Synth 8-614] signal 'preset_ones' is read in the process but is not in the sensitivity list [C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sources_1/new/seg_scanning_display.vhd:70]
+WARNING: [Synth 8-614] signal 'cathode' is read in the process but is not in the sensitivity list [C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sources_1/new/seg_scanning_display.vhd:70]
+INFO: [Synth 8-256] done synthesizing module 'seg_scanning_display' (5#1) [C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sources_1/new/seg_scanning_display.vhd:14]
+INFO: [Synth 8-256] done synthesizing module 'top_level' (6#1) [C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sources_1/new/top_level.vhd:42]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1068.258 ; gain = 0.000
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1073.172 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1068.258 ; gain = 0.000
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1073.172 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1068.258 ; gain = 0.000
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1073.172 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1068.258 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 1073.172 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -63,29 +72,31 @@ INFO: [Project 1-236] Implementation specific constraints were found while readi
 Resolution: To avoid this warning, move constraints listed in [.Xil/top_level_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1149.195 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1150.559 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 1149.195 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1150.559 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1149.195 ; gain = 80.938
+Finished Constraint Validation : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 1150.559 ; gain = 77.387
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcpg236-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1149.195 ; gain = 80.938
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 1150.559 ; gain = 77.387
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1149.195 ; gain = 80.938
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 1150.559 ; gain = 77.387
 ---------------------------------------------------------------------------------
+WARNING: [Synth 8-327] inferring latch for variable 'cathode_reg' [C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sources_1/new/seg_scanning_display.vhd:28]
+WARNING: [Synth 8-327] inferring latch for variable 'clk_1kHz_reg' [C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sources_1/new/seg_scanning_display.vhd:39]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1149.195 ; gain = 80.938
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1150.559 ; gain = 77.387
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -100,9 +111,12 @@ Detailed RTL Component Info :
 	                6 Bit    Registers := 2     
 	                1 Bit    Registers := 4     
 +---Muxes : 
+	   5 Input    7 Bit        Muxes := 1     
 	   2 Input    6 Bit        Muxes := 4     
-	   2 Input    4 Bit        Muxes := 6     
+	   2 Input    4 Bit        Muxes := 7     
+	   4 Input    4 Bit        Muxes := 1     
 	   2 Input    1 Bit        Muxes := 3     
+	   5 Input    1 Bit        Muxes := 1     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -119,25 +133,25 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 1149.195 ; gain = 80.938
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 1150.559 ; gain = 77.387
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:22 ; elapsed = 00:00:24 . Memory (MB): peak = 1149.195 ; gain = 80.938
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 1150.559 ; gain = 77.387
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:24 . Memory (MB): peak = 1151.926 ; gain = 83.668
+Finished Timing Optimization : Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 1151.848 ; gain = 78.676
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:22 ; elapsed = 00:00:24 . Memory (MB): peak = 1153.203 ; gain = 84.945
+Finished Technology Mapping : Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 1155.926 ; gain = 82.754
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -155,37 +169,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 1158.988 ; gain = 90.730
+Finished IO Insertion : Time (s): cpu = 00:00:27 ; elapsed = 00:00:29 . Memory (MB): peak = 1161.676 ; gain = 88.504
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 1158.988 ; gain = 90.730
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:27 ; elapsed = 00:00:29 . Memory (MB): peak = 1161.676 ; gain = 88.504
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 1158.988 ; gain = 90.730
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:27 ; elapsed = 00:00:29 . Memory (MB): peak = 1161.676 ; gain = 88.504
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 1158.988 ; gain = 90.730
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:27 ; elapsed = 00:00:29 . Memory (MB): peak = 1161.676 ; gain = 88.504
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 1158.988 ; gain = 90.730
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:27 ; elapsed = 00:00:29 . Memory (MB): peak = 1161.676 ; gain = 88.504
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 1158.988 ; gain = 90.730
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:27 ; elapsed = 00:00:29 . Memory (MB): peak = 1161.676 ; gain = 88.504
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -201,38 +215,41 @@ Report Cell Usage:
 +------+-------+------+
 |      |Cell   |Count |
 +------+-------+------+
-|1     |BUFG   |     1|
-|2     |CARRY4 |    16|
-|3     |LUT1   |     2|
-|4     |LUT2   |     1|
-|5     |LUT3   |     1|
-|6     |LUT4   |     3|
-|7     |LUT5   |    12|
-|8     |LUT6   |    21|
-|9     |FDRE   |    37|
-|10    |IBUF   |     7|
-|11    |OBUF   |    29|
+|1     |BUFG   |     3|
+|2     |CARRY4 |    32|
+|3     |LUT1   |     6|
+|4     |LUT2   |     2|
+|5     |LUT3   |     5|
+|6     |LUT4   |    11|
+|7     |LUT5   |    16|
+|8     |LUT6   |    43|
+|9     |FDCE   |    64|
+|10    |FDRE   |    37|
+|11    |LD     |     8|
+|12    |IBUF   |     7|
+|13    |OBUF   |    12|
 +------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 1158.988 ; gain = 90.730
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:27 ; elapsed = 00:00:29 . Memory (MB): peak = 1161.676 ; gain = 88.504
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:18 ; elapsed = 00:00:25 . Memory (MB): peak = 1158.988 ; gain = 9.793
-Synthesis Optimization Complete : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 1158.988 ; gain = 90.730
+Synthesis finished with 0 errors, 0 critical warnings and 2 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:19 ; elapsed = 00:00:26 . Memory (MB): peak = 1161.676 ; gain = 11.117
+Synthesis Optimization Complete : Time (s): cpu = 00:00:27 ; elapsed = 00:00:29 . Memory (MB): peak = 1161.676 ; gain = 88.504
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1171.078 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 16 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1173.742 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 40 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1175.703 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1174.008 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
-No Unisim elements were transformed.
+  A total of 8 instances were transformed.
+  LD => LDCE: 8 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-33 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
+36 Infos, 9 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:32 ; elapsed = 00:00:41 . Memory (MB): peak = 1175.703 ; gain = 107.445
+synth_design: Time (s): cpu = 00:00:34 ; elapsed = 00:00:42 . Memory (MB): peak = 1174.008 ; gain = 100.836
 INFO: [Common 17-1381] The checkpoint 'C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.runs/synth_1/top_level.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file top_level_utilization_synth.rpt -pb top_level_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sat Mar 18 14:56:24 2023...
+INFO: [Common 17-206] Exiting Vivado at Sun Mar 19 09:07:29 2023...
