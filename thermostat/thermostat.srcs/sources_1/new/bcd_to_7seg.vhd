@@ -45,30 +45,30 @@ begin
  --process to convert executes whenever a new BCD digit is recieved
 process(bcd)
 begin
---case statement illuminates correct segments based on bcd value
+--case statement illuminates correct segments based on bcd value (active-low)
 case bcd is
     when "0000" =>
-        seven_seg <= "1111110"; --0
+        seven_seg <= "0000001"; --0
     when "0001" =>
-        seven_seg <= "0110000"; --1
+        seven_seg <= "1001111"; --1
     when "0010" =>
-        seven_seg <= "1101101"; --2
+        seven_seg <= "0010010"; --2
     when "0011" =>
-        seven_seg <= "1111001"; --3
+        seven_seg <= "0000110"; --3
     when "0100" =>
-        seven_seg <= "0110011"; --4
+        seven_seg <= "1001100"; --4
     when "0101" =>
-        seven_seg <= "1011011"; --5
+        seven_seg <= "0100100"; --5
     when "0110" =>
-        seven_seg <= "1011111"; --6
+        seven_seg <= "0100000"; --6
     when "0111" =>
-        seven_seg <= "1110000"; --7
+        seven_seg <= "0001111"; --7
     when "1000" =>
-        seven_seg <= "1111111"; --8
+        seven_seg <= "0000000"; --8
     when "1001" =>
-        seven_seg <= "1111011"; --9
+        seven_seg <= "0000100"; --9
     when others =>
-        seven_seg <= "0000000"; --exception (invalid bcd)
+        seven_seg <= "1111111"; --exception (invalid bcd)
 end case;
  
 end process;
