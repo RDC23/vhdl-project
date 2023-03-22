@@ -19,8 +19,8 @@ signal anode : STD_LOGIC_VECTOR (3 downto 0) := "0000";
 signal cathode : STD_LOGIC_VECTOR (6 downto 0) := (others=>'0');
 
 --count constant
---constant maxval : INTEGER := 2; --uncomment this for simulation
-constant maxval : INTEGER := 50000; --uncomment this for synthesis 
+constant maxval : INTEGER := 4; --uncomment this for simulation
+--constant maxval : INTEGER := 50000; --uncomment this for synthesis 
 
 begin
 --concurrent transfer of internal signals to outputs
@@ -35,15 +35,16 @@ begin
             count := count + 1;
     end if;
 
-    if (count = maxval-1) then
+    if (count = maxval) then
         clk_1kHz <= not clk_1kHz; --invert clock
         count := 0; --reset count
     end if;
 end process clk_gen;    
 
 anode_scanner : process(clk_1kHz)
-variable multiplex_count : integer := 0;
+    variable multiplex_count : integer := 0;
 begin
+<<<<<<< HEAD
     --reset counter if 3 is reached
     if (multiplex_count = 3) then
     multiplex_count := 0;
@@ -66,6 +67,26 @@ begin
         anode <= "1110";
     when others =>
         anode <= "1111"; --disables all 7 segs (should never happen)
+=======
+    if (rising_edge(clk_1kHz)) then
+        multiplex_count := multiplex_count + 1;
+        if (multiplex_count = 4) then
+            multiplex_count := 0;
+        end if;
+    end if;
+
+    case multiplex_count is
+        when 0 => 
+            anode <= "0111";
+        when 1 =>
+            anode <= "1011";
+        when 2 =>
+            anode <= "1101";
+        when 3 =>
+            anode <= "1110";
+        when others =>
+            anode <= "1111";
+>>>>>>> ffaad8d00027740fffacfbe6169cd565d52a5ac4
     end case;
 end process anode_scanner;
 
