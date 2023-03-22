@@ -1,0 +1,22 @@
+#-----------------------------------------------------------
+# Vivado v2020.1 (64-bit)
+# SW Build 2902540 on Wed May 27 19:54:49 MDT 2020
+# IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
+# Start of session at: Tue Mar 21 20:06:03 2023
+# Process ID: 13172
+# Current directory: C:/Users/dsb21132/Desktop/vhdl-project/thermostat
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent7356 C:\Users\dsb21132\Desktop\vhdl-project\thermostat\thermostat.xpr
+# Log file: C:/Users/dsb21132/Desktop/vhdl-project/thermostat/vivado.log
+# Journal file: C:/Users/dsb21132/Desktop/vhdl-project/thermostat\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.xpr
+update_compile_order -fileset sources_1
+launch_simulation
+source top_level_tb.tcl
+set_property top seg_scanning_display_tb [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+update_compile_order -fileset sim_1
+launch_simulation
+launch_simulation
+close_sim

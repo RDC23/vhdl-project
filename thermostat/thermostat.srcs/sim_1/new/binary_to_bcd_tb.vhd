@@ -58,6 +58,15 @@ begin
     temp_in <= "101111"; wait for 20 ns; -- should be tens = "0100" ones = "0111"
     temp_in <= "001101"; wait for 20 ns; -- should be tens = "0001" ones = "0011"
     temp_in <= "111111"; wait for 20ns;  -- should be tens = "0101" ones = "1001"
+    temp_in <= "111111"; wait for 20 ns; -- should be tens = "0100" ones = "0111"
+    temp_in <= "010010"; wait for 20 ns;
+    temp_in <= "000000"; wait for 20ns;  
+    temp_in <= "001111"; wait for 20 ns; 
+    temp_in <= "010111"; wait for 20 ns; 
+    temp_in <= "111110"; wait for 20ns;  
+    temp_in <= "101011"; wait for 20 ns; 
+    temp_in <= "101101"; wait for 20 ns; 
+    temp_in <= "000001"; wait for 20ns;  
     
     --test more cases!
 end process;

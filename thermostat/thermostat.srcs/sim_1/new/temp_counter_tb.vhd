@@ -79,7 +79,7 @@ end process clk_12;
 --stimuli
 stimuli : process 
 begin
-    min_temp <= "000101";
+    min_temp <= "010101";
     wait;
 end process stimuli;
 

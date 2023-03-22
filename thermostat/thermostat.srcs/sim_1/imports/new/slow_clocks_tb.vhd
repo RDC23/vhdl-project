@@ -55,7 +55,7 @@ DUT : slow_clocks port map(clk=>clk, clk_20s=>clk_20s, clk_12s=>clk_12s);
 --create test process
 stimuli : process
 begin
-    while now <= 10us loop --100 MHz sim clock
+    while now <= 1ms loop --100 MHz sim clock
         clk <= '1'; wait for 20 ns;
         clk <='0'; wait for 20 ns;
     end loop;

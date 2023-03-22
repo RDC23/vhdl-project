@@ -53,7 +53,7 @@ variable op_temp : unsigned(5 downto 0) := (others=>'0');
 
 begin
    --heat up process if the current temp is below minimum
-   if (op_temp < unsigned(min_temp)) then
+   if (op_temp <= unsigned(min_temp)) then
         if (rising_edge(slow_clk_12)) then
             op_temp := op_temp + 1;
             is_heating <= '1';
