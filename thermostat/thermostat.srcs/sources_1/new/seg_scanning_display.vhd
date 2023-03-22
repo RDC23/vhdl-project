@@ -44,28 +44,31 @@ end process clk_gen;
 anode_scanner : process(clk_1kHz)
 variable multiplex_count : integer := 0;
 begin
-    --increment the count
-    if (rising_edge(clk_1kHz)) then
-        multiplex_count := multiplex_count + 1;
-    end if;
-    --switch on the multiplex_count
-    case multiplex_count is
-        when 0 => 
-            anode <= "0111";
-        when 1 =>
-            anode <= "1011";
-        when 2 =>
-            anode <= "1101";
-        when 3 =>
-            anode <= "1110";
-        when others =>
-            anode <= "1111"; --disables all 7 segs (should never happen)
-    end case;
     --reset counter if 3 is reached
     if (multiplex_count = 3) then
-        multiplex_count := 0;
-    end if;    
+    multiplex_count := 0;
+    end if; 
+
+    --increment the count
+    if (rising_edge(clk_1kHz)) then
+    multiplex_count := multiplex_count + 1;
+    end if;
+
+    --switch on the multiplex_count
+    case multiplex_count is
+    when 0 => 
+        anode <= "0111";
+    when 1 =>
+        anode <= "1011";
+    when 2 =>
+        anode <= "1101";
+    when 3 =>
+        anode <= "1110";
+    when others =>
+        anode <= "1111"; --disables all 7 segs (should never happen)
+    end case;
 end process anode_scanner;
+
 
 cathode_scanner : process (anode)
 begin
