@@ -2,22 +2,182 @@
 # Vivado v2020.1 (64-bit)
 # SW Build 2902540 on Wed May 27 19:54:49 MDT 2020
 # IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
-# Start of session at: Wed Mar 22 19:27:16 2023
-# Process ID: 8344
+# Start of session at: Fri Mar 24 08:57:11 2023
+# Process ID: 12184
 # Current directory: C:/Users/dsb21132/Desktop/vhdl-project/thermostat
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent8652 C:\Users\dsb21132\Desktop\vhdl-project\thermostat\thermostat.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent12232 C:\Users\dsb21132\Desktop\vhdl-project\thermostat\thermostat.xpr
 # Log file: C:/Users/dsb21132/Desktop/vhdl-project/thermostat/vivado.log
 # Journal file: C:/Users/dsb21132/Desktop/vhdl-project/thermostat\vivado.jou
 #-----------------------------------------------------------
 start_gui
 open_project C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.xpr
 update_compile_order -fileset sources_1
-launch_simulation
-source temp_counter_tb.tcl
-set_property top seg_scanning_display_tb [get_filesets sim_1]
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+wait_on_run impl_1
+open_hw_manager
+connect_hw_server -allow_non_jtag
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.runs/impl_1/top_level.bit} [get_hw_devices xc7a35t_0]
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.runs/impl_1/top_level.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+close_hw_manager
+export_ip_user_files -of_objects  [get_files C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sources_1/new/slow_clock_20s.vhd] -no_script -reset -force -quiet
+remove_files  C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sources_1/new/slow_clock_20s.vhd
+export_ip_user_files -of_objects  [get_files C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sim_1/imports/new/slow_clocks_tb.vhd] -no_script -reset -force -quiet
+remove_files  -fileset sim_1 C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sim_1/imports/new/slow_clocks_tb.vhd
+update_compile_order -fileset sim_1
+update_compile_order -fileset sim_1
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+wait_on_run impl_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+wait_on_run impl_1
+open_hw_manager
+connect_hw_server -allow_non_jtag
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.runs/impl_1/top_level.bit} [get_hw_devices xc7a35t_0]
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.runs/impl_1/top_level.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+close_hw_manager
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+wait_on_run impl_1
+open_hw_manager
+connect_hw_server -allow_non_jtag
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.runs/impl_1/top_level.bit} [get_hw_devices xc7a35t_0]
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.runs/impl_1/top_level.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+close_hw_manager
+set_property top temp_counter_tb [get_filesets sim_1]
 set_property top_lib xil_defaultlib [get_filesets sim_1]
 update_compile_order -fileset sim_1
+launch_simulation
+launch_simulation
+source temp_counter_tb.tcl
 close_sim
 launch_simulation
-source seg_scanning_display_tb.tcl
+source temp_counter_tb.tcl
+close_sim
+launch_simulation
+source temp_counter_tb.tcl
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+wait_on_run impl_1
+add_bp {C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sources_1/new/temp_counter.vhd} 57
+open_hw_manager
+connect_hw_server -allow_non_jtag
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.runs/impl_1/top_level.bit} [get_hw_devices xc7a35t_0]
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.runs/impl_1/top_level.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.runs/impl_1/top_level.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+close_hw_manager
+close_sim
+launch_simulation
+source temp_counter_tb.tcl
+remove_bps -file {C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sources_1/new/temp_counter.vhd} -line 57
+close_sim
+launch_simulation
+source temp_counter_tb.tcl
+close_sim
+launch_simulation
+source temp_counter_tb.tcl
+close_sim
+launch_simulation
+source temp_counter_tb.tcl
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+wait_on_run impl_1
+open_hw_manager
+connect_hw_server -allow_non_jtag
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.runs/impl_1/top_level.bit} [get_hw_devices xc7a35t_0]
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.runs/impl_1/top_level.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+wait_on_run impl_1
+open_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.runs/impl_1/top_level.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+close_hw_manager
+reset_run impl_1 -prev_step 
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+wait_on_run impl_1
+open_hw_manager
+connect_hw_server -allow_non_jtag
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.runs/impl_1/top_level.bit} [get_hw_devices xc7a35t_0]
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.runs/impl_1/top_level.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+close_hw_manager
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+wait_on_run impl_1
+open_hw_manager
+connect_hw_server -allow_non_jtag
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.runs/impl_1/top_level.bit} [get_hw_devices xc7a35t_0]
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.runs/impl_1/top_level.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.runs/impl_1/top_level.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.runs/impl_1/top_level.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+close_hw_manager
 close_sim

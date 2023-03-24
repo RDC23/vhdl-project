@@ -43,19 +43,11 @@ architecture Behavioral of top_level is
 
 --temperature counter component declaration
 component temp_counter is
-Port ( slow_clk_20 : in std_logic;
-           slow_clk_12 : in std_logic;
+Port ( clk: in STD_LOGIC;
            min_temp : in std_logic_vector (5 downto 0);
            cur_temp : out std_logic_vector (5 downto 0);
            is_heating : out std_logic);
 end component temp_counter;
-
---clock divider component declaration
-component slow_clocks is
-Port ( clk : in STD_LOGIC;
-           clk_20s : out STD_LOGIC;
-           clk_12s : out STD_LOGIC);
-end component slow_clocks;
 
 --binary to bcd encoder component declaration
 component binary_to_bcd is
@@ -82,7 +74,7 @@ component seg_scanning_display is
 end component seg_scanning_display;
    
 --create the internal signals to link components
-signal clk_20, clk_12 : STD_LOGIC;
+signal clk_int: STD_LOGIC;
 signal curtemp_binary : STD_LOGIC_VECTOR (5 downto 0); --between temp counter and binary to bcd converter
 signal bcd_preset_ones, bcd_preset_tens, bcd_cur_ones, bcd_cur_tens : STD_LOGIC_VECTOR(3 downto 0); --between bcd and 7segs
 signal scanner_ct_ones, scanner_ct_tens, scanner_pst_ones, scanner_pst_tens : STD_LOGIC_VECTOR (6 downto 0);
@@ -90,9 +82,8 @@ signal scanner_ct_ones, scanner_ct_tens, scanner_pst_ones, scanner_pst_tens : ST
 begin
 
 --instantiate components
-CLK_DIV : slow_clocks Port Map(clk=>clk, clk_20s=>clk_20, clk_12s=>clk_12);
 
-TEMP_COUNT : temp_counter Port Map(slow_clk_20=>clk_20, slow_clk_12=>clk_12, min_temp=>temp_preset, cur_temp=>curtemp_binary, is_heating=>heat_on);
+TEMP_COUNT : temp_counter Port Map(clk=>clk_int, min_temp=>temp_preset, cur_temp=>curtemp_binary, is_heating=>heat_on);
 
 CURTEMP_BINARY_TO_BCD : binary_to_bcd Port Map(temp_in=>curtemp_binary, temp_out_tens=>bcd_cur_tens, temp_out_ones=>bcd_cur_ones);
 

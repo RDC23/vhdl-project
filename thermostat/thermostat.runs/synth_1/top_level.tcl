@@ -70,6 +70,9 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
+set_param chipscope.maxJobs 1
+set_param xicom.use_bs_reader 1
+set_msg_config -id {Common 17-41} -limit 10000000
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a35tcpg236-1
 
@@ -80,7 +83,6 @@ set_property webtalk.parent_dir C:/Users/dsb21132/Desktop/vhdl-project/thermosta
 set_property parent.project_path C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.xpr [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language VHDL [current_project]
-set_property board_part digilentinc.com:basys3:part0:1.1 [current_project]
 set_property ip_output_repo c:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
@@ -89,7 +91,6 @@ read_vhdl -library xil_defaultlib {
   C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sources_1/new/bcd_to_7seg.vhd
   C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sources_1/new/binary_to_bcd.vhd
   C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sources_1/new/seg_scanning_display.vhd
-  C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sources_1/new/slow_clock_20s.vhd
   C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sources_1/new/temp_counter.vhd
   C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sources_1/new/top_level.vhd
 }

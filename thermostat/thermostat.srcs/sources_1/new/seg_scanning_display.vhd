@@ -20,7 +20,7 @@ signal cathode : STD_LOGIC_VECTOR (6 downto 0) := (others=>'0');
 
 --count constant
 --constant maxval : INTEGER := 4; --uncomment this for simulation
-constant maxval : INTEGER := 50000; --uncomment this for synthesis 
+constant maxval : INTEGER := 50000; --uncomment this for synthesis
 
 begin
 --concurrent transfer of internal signals to outputs
@@ -35,7 +35,7 @@ begin
             count := count + 1;
     end if;
 
-    if (count = maxval) then
+    if (count = maxval-1) then
         clk_1kHz <= not clk_1kHz; --invert clock
         count := 0; --reset count
     end if;
@@ -52,7 +52,7 @@ begin
     end if;
 
     case multiplex_count is
-        when 0 => 
+        when 0 =>
             anode <= "0111";
         when 1 =>
             anode <= "1011";
@@ -84,4 +84,3 @@ begin
 end process cathode_scanner;    
 
 end Behave;
-

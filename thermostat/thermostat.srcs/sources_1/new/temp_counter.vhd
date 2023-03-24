@@ -1,21 +1,20 @@
-----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
+-- Company:
+-- Engineer:
+--
 -- Create Date: 12.03.2023 17:01:17
--- Design Name: 
+-- Design Name:
 -- Module Name: temp_counter - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
+-- Project Name:
+-- Target Devices:
+-- Tool Versions:
+-- Description:
+--
+-- Dependencies:
+--
 -- Revision:
 -- Revision 0.01 - File Created
 -- Additional Comments:
--- 
+--
 ----------------------------------------------------------------------------------
 
 
@@ -33,8 +32,7 @@ use IEEE.NUMERIC_STD.ALL;
 --use UNISIM.VComponents.all;
 
 entity temp_counter is
-    Port ( slow_clk_20 : in std_logic;
-           slow_clk_12 : in std_logic;
+    Port ( clk : in std_logic;
            min_temp : in std_logic_vector (5 downto 0);
            cur_temp : out std_logic_vector (5 downto 0);
            is_heating : out std_logic);
@@ -42,34 +40,44 @@ end temp_counter;
 
 architecture Behavioral of temp_counter is
 
+constant default_clk : integer := 100000000; -- default Basys 3 clock rate of 100 MHz --use this clock for synthesis
+--constant default_clk : integer := 10; -- use this for simulation
+constant max_count_12s : integer := default_clk * 6; -- 12s clock period 50% duty cycle
+constant max_count_20s : integer := default_clk * 10; -- 20s clock period 50% duty cycle
+signal internal_temp : unsigned(5 downto 0):= "000101";
 begin
---asssign default is_heating
 
---process to either increment or decrement temp in response to time changes (signified rising clock edges)
-delta_t : process(slow_clk_12, slow_clk_20)
-
---op_temp tracks the current (output) temperature and is modfied to maintain equilibrium based on user-set minimum 
-variable op_temp : unsigned(5 downto 0) := (others=>'0');
+temp_change : process(clk)
+variable count12 : INTEGER := 0;
+variable count20 : INTEGER := 0;
 
 begin
-   --heat up process if the current temp is below minimum
-   if (op_temp <= unsigned(min_temp)) then
-        if (rising_edge(slow_clk_12)) then
-            op_temp := op_temp + 1;
-            is_heating <= '1';
-        end if;
-   --cool down process if the current temp is above minimum
-    else
-        if (rising_edge(slow_clk_20)) then
-            op_temp := op_temp - 1;
-            is_heating <= '0';
-        end if;
-    end if; 
-
-  --assign the local op_temp variable to the global output temperature
-  cur_temp <= std_logic_vector(op_temp);
+    if (rising_edge(clk)) then
+        --increment both the counters
+        count12 := count12 + 1;
+        count20 := count20 + 1;    
+        
+        if (count12 = max_count_12s) then
+            if(internal_temp <= unsigned(min_temp)) then
+                internal_temp <= internal_temp + 1;
+                is_heating <= '1';
+            end if;
+            count12 := 0;            
+        end if;    
+    
+        if (count20 = max_count_20s) then
+            if(internal_temp > unsigned(min_temp)) then
+                internal_temp <= internal_temp - 1;
+                is_heating <= '0';
+            end if;   
+            count20 := 0;   
+        end if;  
+          
+    end if;
   
-end process delta_t;   
 
+end process temp_change;
 
+cur_temp <= std_logic_vector(internal_temp);  
+    
 end Behavioral;

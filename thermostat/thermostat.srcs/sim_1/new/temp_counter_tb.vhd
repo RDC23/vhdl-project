@@ -40,41 +40,31 @@ architecture Behavioral of temp_counter_tb is
 
 --declare component
 component temp_counter is
- Port ( slow_clk_20 : in std_logic;
-           slow_clk_12 : in std_logic;
+ Port (    clk : in std_logic;
            min_temp : in std_logic_vector (5 downto 0);
            cur_temp : out std_logic_vector (5 downto 0);
            is_heating: out std_logic);
 end component temp_counter;
 
 --declare signals
-signal is_heating, slow_clk_20, slow_clk_12 : std_logic;
+signal clk, is_heating : std_logic := '0';
 signal min_temp, cur_temp : std_logic_vector(5 downto 0);
 
 begin
 
 --instantiate component
-DUT : temp_counter Port Map (is_heating => is_heating, slow_clk_20 => slow_clk_20, slow_clk_12 => slow_clk_12, min_temp => min_temp, cur_temp => cur_temp);
+DUT : temp_counter Port Map (is_heating => is_heating, clk=>clk, min_temp => min_temp, cur_temp => cur_temp);
 
 --create test 20s clock
-clk_20 : process
+clkgen : process
 begin
     while (now <= 1 ms) loop
-        slow_clk_20 <= '1'; wait for 10 ns;
-        slow_clk_20 <= '0'; wait for 10 ns;    
+       clk <= '1'; wait for 10 ns;
+       clk <= '0'; wait for 10 ns;    
     end loop;
     wait;
-end process clk_20;
+end process clkgen;
 
---create test 12s clock
-clk_12 : process
-begin
-    while (now <= 1 ms) loop
-        slow_clk_12 <= '1'; wait for 6 ns;
-        slow_clk_12 <= '0'; wait for 6 ns;    
-    end loop;
-    wait;
-end process clk_12;
 
 --stimuli
 stimuli : process 
