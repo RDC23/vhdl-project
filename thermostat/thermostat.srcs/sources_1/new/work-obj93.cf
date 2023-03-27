@@ -1,0 +1,4 @@
+v 4
+file . "temp_counter.vhd" "30399afd80e6db2925ab807e7005a5b65bc6fe8d" "20230327163513.206":
+  entity temp_counter at 1( 0) + 0 on 11;
+  architecture behavioral of temp_counter at 12( 307) + 0 on 12;

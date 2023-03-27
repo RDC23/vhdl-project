@@ -1,35 +1,6 @@
--- Company:
--- Engineer:
---
--- Create Date: 12.03.2023 17:01:17
--- Design Name:
--- Module Name: temp_counter - Behavioral
--- Project Name:
--- Target Devices:
--- Tool Versions:
--- Description:
---
--- Dependencies:
---
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
---
-----------------------------------------------------------------------------------
-
-
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx leaf cells in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
 
 entity temp_counter is
     Port ( clk : in std_logic;
@@ -40,10 +11,10 @@ end temp_counter;
 
 architecture Behavioral of temp_counter is
 
-constant default_clk : integer := 100000000; -- default Basys 3 clock rate of 100 MHz --use this clock for synthesis
---constant default_clk : integer := 10; -- use this for simulation
-constant max_count_12s : integer := default_clk * 6; -- 12s clock period 50% duty cycle
-constant max_count_20s : integer := default_clk * 10; -- 20s clock period 50% duty cycle
+constant default_clk : integer := 100000000; -- synth clk
+--constant default_clk : integer := 10; --sim clk
+constant max_count_12s : integer := default_clk * 6;
+constant max_count_20s : integer := default_clk * 10;
 signal internal_temp : unsigned(5 downto 0):= "000101";
 begin
 
@@ -58,23 +29,21 @@ begin
         count20 := count20 + 1;    
         
         if (count12 = max_count_12s) then
+            count12 := 0;  
             if(internal_temp <= unsigned(min_temp)) then
                 internal_temp <= internal_temp + 1;
                 is_heating <= '1';
-            end if;
-            count12 := 0;            
-        end if;    
-    
-        if (count20 = max_count_20s) then
+            end if;     
+                     
+        elsif (count20 = max_count_20s) then
+            count20 := 0; 
             if(internal_temp > unsigned(min_temp)) then
                 internal_temp <= internal_temp - 1;
                 is_heating <= '0';
-            end if;   
-            count20 := 0;   
+            end if;                
         end if;  
           
-    end if;
-  
+    end if;  
 
 end process temp_change;
 
