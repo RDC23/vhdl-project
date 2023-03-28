@@ -1,37 +1,13 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date: 12.03.2023 13:46:41
--- Design Name: 
--- Module Name: bcd_to_7seg - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
+-- Company: Strathclyde
+-- Engineer: Ross Cathcart
+-- Function: This entity converts an input BCD value to an array of logic 
+--			 corresponding with the illuminated segments of the 7-segment display
 ----------------------------------------------------------------------------------
 
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx leaf cells in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
-
-
 
 entity bcd_to_7seg is
     Port ( bcd : in STD_LOGIC_VECTOR (3 downto 0);
@@ -41,7 +17,6 @@ end bcd_to_7seg;
 architecture Behavioral of bcd_to_7seg is
  
 begin
- 
  --process to convert executes whenever a new BCD digit is recieved
 process(bcd)
 begin

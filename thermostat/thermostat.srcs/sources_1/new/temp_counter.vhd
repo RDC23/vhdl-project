@@ -1,3 +1,9 @@
+----------------------------------------------------------------------------------
+-- Company: Strathclyde
+-- Engineer: Ross Cathcart
+-- Function: switches on/off the heating and adjusts the current temperature
+----------------------------------------------------------------------------------
+
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
@@ -19,6 +25,8 @@ signal internal_temp : unsigned(5 downto 0):= "000101";
 begin
 
 temp_change : process(clk)
+--process to count up (wait in a synthesisable format) then adjust the current
+--temperature accordingly
 variable count12 : INTEGER := 0;
 variable count20 : INTEGER := 0;
 
@@ -29,6 +37,7 @@ begin
         count20 := count20 + 1;    
         
         if (count12 = max_count_12s) then
+		--reset count and increment curtemp if it is lower than or equal to the preset
             count12 := 0;  
             if(internal_temp <= unsigned(min_temp)) then
                 internal_temp <= internal_temp + 1;
@@ -36,6 +45,7 @@ begin
             end if;     
                      
         elsif (count20 = max_count_20s) then
+		--reset count and decrement curtemp if it is above than preset
             count20 := 0; 
             if(internal_temp > unsigned(min_temp)) then
                 internal_temp <= internal_temp - 1;
@@ -47,6 +57,7 @@ begin
 
 end process temp_change;
 
+--concurrently assign the current temp when internal temp changes
 cur_temp <= std_logic_vector(internal_temp);  
     
 end Behavioral;

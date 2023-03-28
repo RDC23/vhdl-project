@@ -1,36 +1,14 @@
 ----------------------------------------------------------------------------------
--- Company: 
+-- Company: Strathclyde
 -- Engineer: Ross Cathcart
--- 
--- Create Date: 09.03.2023 18:55:40
--- Design Name: 
--- Module Name: slow_clock_20s - Behavioral
--- Project Name: 
--- Target Devices: Basys3
--- Tool Versions: 
--- Description: Takes an input clock signal and converts it to a signal with 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
+-- Function: divides the input clock of 100Mhz into 2 slower clocks of period
+-- 			 12 seconds and 20 seconds respectively
 ----------------------------------------------------------------------------------
 
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.numeric_std.all;
-
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx leaf cells in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
 
 entity slow_clocks is
     Port ( clk : in STD_LOGIC;
@@ -40,11 +18,10 @@ entity slow_clocks is
 end slow_clocks;
 
 architecture Behavioral of slow_clocks is
---constants
+--clock divider constant
 
 constant default_clk : integer := 100000000; -- default Basys 3 clock rate of 100 MHz --use this clock for synthesis
 --constant default_clk : integer := 10; -- use this for simulation
-
 constant max_count_12s : integer := default_clk * 6; -- 12s clock period 50% duty cycle
 constant max_count_20s : integer := default_clk * 10; -- 20s clock period 50% duty cycle
 
@@ -53,7 +30,6 @@ signal clk_20_out : std_logic := '0';
 signal clk_12_out : std_logic := '0';
     
 begin
-
 
 --process to increment the internal counters
 counting : process(clk)

@@ -1,21 +1,8 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date: 12.03.2023 08:40:04
--- Design Name: 
--- Module Name: binary_to_bcd - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
+-- Company: Strathclyde
+-- Engineer: Ross Cathcart
+-- Function: Employs the double dabble algorithm to convert the binary input value
+-- 			 into a "tens" and "ones" output BCD value.
 ----------------------------------------------------------------------------------
 
 
@@ -23,14 +10,6 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx leaf cells in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
 
 entity binary_to_bcd is
     --max 6 bit input (0-65 Celsius)

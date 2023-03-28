@@ -1,3 +1,12 @@
+----------------------------------------------------------------------------------
+-- Company: Strathclyde
+-- Engineer: Ross Cathcart
+-- Function: Takes four 7-segment inputs and multiplexes to select these at a high
+--			 frequency, one after another displaying each digit at what would
+--			 appear to be near constantly to the naked eye.
+----------------------------------------------------------------------------------
+
+
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
@@ -13,12 +22,12 @@ end seg_scanning_display;
 
 architecture Behave of seg_scanning_display is
 
---internal signals    
-signal clk_1kHz : STD_LOGIC := '0';--internal clock for refresh rate
+--internal signals to track the frequency divided clock and outputs
+signal clk_1kHz : STD_LOGIC := '0';
 signal anode : STD_LOGIC_VECTOR (3 downto 0) := "0000";
 signal cathode : STD_LOGIC_VECTOR (6 downto 0) := (others=>'0');
 
---count constant
+--count constant for clock division
 --constant maxval : INTEGER := 4; --uncomment this for simulation
 constant maxval : INTEGER := 50000; --uncomment this for synthesis
 
@@ -42,6 +51,7 @@ begin
 end process clk_gen;    
 
 anode_scanner : process(clk_1kHz)
+--multiplex to select the correct anode (enable sequence)
     variable multiplex_count : integer := 0;
 begin
     if (rising_edge(clk_1kHz)) then
@@ -78,7 +88,7 @@ begin
             cathode <= preset_tens;
         when "1110" =>
             cathode <= preset_ones;
-        when others => --should never occur
+        when others => --should never occur but added as a fail-safe
             cathode <= cathode;
     end case;
 end process cathode_scanner;    

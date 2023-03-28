@@ -1,35 +1,5 @@
-----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date: 12.03.2023 13:13:01
--- Design Name: 
--- Module Name: binary_to_bcd_tb - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
-----------------------------------------------------------------------------------
-
-
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx leaf cells in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
 
 entity binary_to_bcd_tb is
 --  Port ( );
@@ -59,7 +29,7 @@ begin
     temp_in <= "001101"; wait for 20 ns; -- should be tens = "0001" ones = "0011"
     temp_in <= "111111"; wait for 20ns;  -- should be tens = "0101" ones = "1001"
     temp_in <= "111111"; wait for 20 ns; -- should be tens = "0100" ones = "0111"
-    temp_in <= "010010"; wait for 20 ns;
+    temp_in <= "010010"; wait for 20 ns; -- convert and check ...
     temp_in <= "000000"; wait for 20ns;  
     temp_in <= "001111"; wait for 20 ns; 
     temp_in <= "010111"; wait for 20 ns; 
