@@ -83,6 +83,8 @@ begin
 
 --instantiate components
 
+clk_int <= clk;
+
 TEMP_COUNT : temp_counter Port Map(clk=>clk_int, min_temp=>temp_preset, cur_temp=>curtemp_binary, is_heating=>heat_on);
 
 CURTEMP_BINARY_TO_BCD : binary_to_bcd Port Map(temp_in=>curtemp_binary, temp_out_tens=>bcd_cur_tens, temp_out_ones=>bcd_cur_ones);
