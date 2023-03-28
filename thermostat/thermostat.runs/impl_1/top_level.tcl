@@ -17,7 +17,7 @@ proc create_report { reportName command } {
   }
 }
 namespace eval ::optrace {
-  variable script "C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.runs/impl_1/top_level.tcl"
+  variable script "C:/Users/l_tan/Desktop/Uni_4/vhdl-project/thermostat/thermostat.runs/impl_1/top_level.tcl"
   variable category "vivado_impl"
 }
 
@@ -112,17 +112,17 @@ proc step_failed { step } {
   set endFile ".$step.error.rst"
   set ch [open $endFile w]
   close $ch
+OPTRACE "impl_1" END { }
 }
 
-set_msg_config -id {Common 17-41} -limit 10000000
 
-OPTRACE "Implementation" START { ROLLUP_1 }
+OPTRACE "impl_1" START { ROLLUP_1 }
 OPTRACE "Phase: Init Design" START { ROLLUP_AUTO }
 start_step init_design
 set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
-  set_param chipscope.maxJobs 1
+  set_param chipscope.maxJobs 2
   set_param xicom.use_bs_reader 1
 OPTRACE "create in-memory project" START { }
   create_project -in_memory -part xc7a35tcpg236-1
@@ -130,19 +130,19 @@ OPTRACE "create in-memory project" START { }
   set_param project.singleFileAddWarning.threshold 0
 OPTRACE "create in-memory project" END { }
 OPTRACE "set parameters" START { }
-  set_property webtalk.parent_dir C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.cache/wt [current_project]
-  set_property parent.project_path C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.xpr [current_project]
-  set_property ip_output_repo C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.cache/ip [current_project]
+  set_property webtalk.parent_dir C:/Users/l_tan/Desktop/Uni_4/vhdl-project/thermostat/thermostat.cache/wt [current_project]
+  set_property parent.project_path C:/Users/l_tan/Desktop/Uni_4/vhdl-project/thermostat/thermostat.xpr [current_project]
+  set_property ip_output_repo C:/Users/l_tan/Desktop/Uni_4/vhdl-project/thermostat/thermostat.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "set parameters" END { }
 OPTRACE "add files" START { }
-  add_files -quiet C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.runs/synth_1/top_level.dcp
+  add_files -quiet C:/Users/l_tan/Desktop/Uni_4/vhdl-project/thermostat/thermostat.runs/synth_1/top_level.dcp
 OPTRACE "read constraints: implementation" START { }
-  read_xdc C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/constrs_1/imports/Downloads/Basys3_Master.xdc
+  read_xdc C:/Users/l_tan/Desktop/Uni_4/vhdl-project/thermostat/thermostat.srcs/constrs_1/imports/Downloads/Basys3_Master.xdc
 OPTRACE "read constraints: implementation" END { }
 OPTRACE "add files" END { }
 OPTRACE "link_design" START { }
-  link_design -top top_level -part xc7a35tcpg236-1
+  link_design -top top_level -part xc7a35tcpg236-1 
 OPTRACE "link_design" END { }
 OPTRACE "gray box cells" START { }
 OPTRACE "gray box cells" END { }
@@ -281,10 +281,10 @@ OPTRACE "route_design reports" START { REPORT }
 OPTRACE "route_design reports" END { }
 OPTRACE "route_design misc" START { }
   close_msg_db -file route_design.pb
-OPTRACE "route_design write_checkpoint" START { CHECKPOINT }
-OPTRACE "route_design write_checkpoint" END { }
 } RESULT]
 if {$rc} {
+OPTRACE "route_design write_checkpoint" START { CHECKPOINT }
+OPTRACE "route_design write_checkpoint" END { }
   write_checkpoint -force top_level_routed_error.dcp
   step_failed route_design
   return -code error $RESULT
@@ -303,7 +303,7 @@ set rc [catch {
   create_msg_db write_bitstream.pb
 OPTRACE "read constraints: write_bitstream" START { }
 OPTRACE "read constraints: write_bitstream" END { }
-  catch { write_mem_info -force top_level.mmi }
+  catch { write_mem_info -force -no_partial_mmi top_level.mmi }
 OPTRACE "write_bitstream setup" END { }
 OPTRACE "write_bitstream" START { }
   write_bitstream -force top_level.bit 
@@ -325,4 +325,4 @@ if {$rc} {
 
 OPTRACE "write_bitstream misc" END { }
 OPTRACE "Phase: Write Bitstream" END { }
-OPTRACE "Implementation" END { }
+OPTRACE "impl_1" END { }

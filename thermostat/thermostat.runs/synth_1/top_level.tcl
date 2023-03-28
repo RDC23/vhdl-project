@@ -4,7 +4,7 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
-  variable script "C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.runs/synth_1/top_level.tcl"
+  variable script "C:/Users/l_tan/Desktop/Uni_4/vhdl-project/thermostat/thermostat.runs/synth_1/top_level.tcl"
   variable category "vivado_synth"
 }
 
@@ -70,29 +70,28 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
-set_param chipscope.maxJobs 1
+set_param chipscope.maxJobs 2
 set_param xicom.use_bs_reader 1
-set_msg_config -id {Common 17-41} -limit 10000000
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a35tcpg236-1
 
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
-set_property webtalk.parent_dir C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.cache/wt [current_project]
-set_property parent.project_path C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.xpr [current_project]
+set_property webtalk.parent_dir C:/Users/l_tan/Desktop/Uni_4/vhdl-project/thermostat/thermostat.cache/wt [current_project]
+set_property parent.project_path C:/Users/l_tan/Desktop/Uni_4/vhdl-project/thermostat/thermostat.xpr [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language VHDL [current_project]
-set_property ip_output_repo c:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.cache/ip [current_project]
+set_property ip_output_repo c:/Users/l_tan/Desktop/Uni_4/vhdl-project/thermostat/thermostat.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_vhdl -library xil_defaultlib {
-  C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sources_1/new/bcd_to_7seg.vhd
-  C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sources_1/new/binary_to_bcd.vhd
-  C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sources_1/new/seg_scanning_display.vhd
-  C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sources_1/new/temp_counter.vhd
-  C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/sources_1/new/top_level.vhd
+  C:/Users/l_tan/Desktop/Uni_4/vhdl-project/thermostat/thermostat.srcs/sources_1/new/bcd_to_7seg.vhd
+  C:/Users/l_tan/Desktop/Uni_4/vhdl-project/thermostat/thermostat.srcs/sources_1/new/binary_to_bcd.vhd
+  C:/Users/l_tan/Desktop/Uni_4/vhdl-project/thermostat/thermostat.srcs/sources_1/new/seg_scanning_display.vhd
+  C:/Users/l_tan/Desktop/Uni_4/vhdl-project/thermostat/thermostat.srcs/sources_1/new/temp_counter.vhd
+  C:/Users/l_tan/Desktop/Uni_4/vhdl-project/thermostat/thermostat.srcs/sources_1/new/top_level.vhd
 }
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
@@ -103,8 +102,8 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/constrs_1/imports/Downloads/Basys3_Master.xdc
-set_property used_in_implementation false [get_files C:/Users/dsb21132/Desktop/vhdl-project/thermostat/thermostat.srcs/constrs_1/imports/Downloads/Basys3_Master.xdc]
+read_xdc C:/Users/l_tan/Desktop/Uni_4/vhdl-project/thermostat/thermostat.srcs/constrs_1/imports/Downloads/Basys3_Master.xdc
+set_property used_in_implementation false [get_files C:/Users/l_tan/Desktop/Uni_4/vhdl-project/thermostat/thermostat.srcs/constrs_1/imports/Downloads/Basys3_Master.xdc]
 
 set_param ips.enableIPCacheLiteLoad 1
 close [open __synthesis_is_running__ w]
@@ -112,6 +111,9 @@ close [open __synthesis_is_running__ w]
 OPTRACE "synth_design" START { }
 synth_design -top top_level -part xc7a35tcpg236-1
 OPTRACE "synth_design" END { }
+if { [get_msg_config -count -severity {CRITICAL WARNING}] > 0 } {
+ send_msg_id runtcl-6 info "Synthesis results are not added to the cache due to CRITICAL_WARNING"
+}
 
 
 OPTRACE "write_checkpoint" START { CHECKPOINT }

@@ -13,8 +13,8 @@ architecture Behavioral of temp_counter is
 
 constant default_clk : integer := 100000000; -- synth clk
 --constant default_clk : integer := 10; --sim clk
-constant max_count_12s : integer := default_clk * 6;
-constant max_count_20s : integer := default_clk * 10;
+constant max_count_12s : integer := default_clk * 12;
+constant max_count_20s : integer := default_clk * 20;
 signal internal_temp : unsigned(5 downto 0):= "000101";
 begin
 

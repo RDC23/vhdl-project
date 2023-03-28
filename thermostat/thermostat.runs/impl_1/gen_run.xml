@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1679655460">
-  <File Type="BITSTR-BMM" Name="top_level_bd.bmm"/>
-  <File Type="OPT-METHODOLOGY-DRC" Name="top_level_methodology_drc_opted.rpt"/>
-  <File Type="INIT-TIMING" Name="top_level_timing_summary_init.rpt"/>
+<GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1679998838">
   <File Type="ROUTE-PWR" Name="top_level_power_routed.rpt"/>
   <File Type="PA-TCL" Name="top_level.tcl"/>
-  <File Type="OPT-TIMING" Name="top_level_timing_summary_opted.rpt"/>
-  <File Type="OPT-DCP" Name="top_level_opt.dcp"/>
+  <File Type="BITSTR-MMI" Name="top_level.mmi"/>
+  <File Type="OPT-METHODOLOGY-DRC" Name="top_level_methodology_drc_opted.rpt"/>
+  <File Type="INIT-TIMING" Name="top_level_timing_summary_init.rpt"/>
   <File Type="ROUTE-PWR-SUM" Name="top_level_power_summary_routed.pb"/>
   <File Type="REPORTS-TCL" Name="top_level_reports.tcl"/>
+  <File Type="OPT-TIMING" Name="top_level_timing_summary_opted.rpt"/>
+  <File Type="OPT-DCP" Name="top_level_opt.dcp"/>
   <File Type="OPT-DRC" Name="top_level_drc_opted.rpt"/>
   <File Type="OPT-HWDEF" Name="top_level.hwdef"/>
   <File Type="PWROPT-DCP" Name="top_level_pwropt.dcp"/>
@@ -22,13 +22,14 @@
   <File Type="PLACE-CTRL" Name="top_level_control_sets_placed.rpt"/>
   <File Type="PLACE-SIMILARITY" Name="top_level_incremental_reuse_placed.rpt"/>
   <File Type="PLACE-PRE-SIMILARITY" Name="top_level_incremental_reuse_pre_placed.rpt"/>
+  <File Type="BG-BIN" Name="top_level.bin"/>
   <File Type="PLACE-TIMING" Name="top_level_timing_summary_placed.rpt"/>
   <File Type="POSTPLACE-PWROPT-DCP" Name="top_level_postplace_pwropt.dcp"/>
-  <File Type="BG-BIN" Name="top_level.bin"/>
+  <File Type="BITSTR-MSK" Name="top_level.msk"/>
   <File Type="POSTPLACE-PWROPT-TIMING" Name="top_level_timing_summary_postplace_pwropted.rpt"/>
   <File Type="PHYSOPT-DCP" Name="top_level_physopt.dcp"/>
   <File Type="PHYSOPT-DRC" Name="top_level_drc_physopted.rpt"/>
-  <File Type="BITSTR-MSK" Name="top_level.msk"/>
+  <File Type="BITSTR-RBT" Name="top_level.rbt"/>
   <File Type="PHYSOPT-TIMING" Name="top_level_timing_summary_physopted.rpt"/>
   <File Type="ROUTE-ERROR-DCP" Name="top_level_routed_error.dcp"/>
   <File Type="ROUTE-DCP" Name="top_level_routed.dcp"/>
@@ -36,7 +37,6 @@
   <File Type="ROUTE-DRC" Name="top_level_drc_routed.rpt"/>
   <File Type="ROUTE-DRC-PB" Name="top_level_drc_routed.pb"/>
   <File Type="ROUTE-DRC-RPX" Name="top_level_drc_routed.rpx"/>
-  <File Type="BITSTR-MMI" Name="top_level.mmi"/>
   <File Type="ROUTE-METHODOLOGY-DRC" Name="top_level_methodology_drc_routed.rpt"/>
   <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="top_level_methodology_drc_routed.rpx"/>
   <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="top_level_methodology_drc_routed.pb"/>
@@ -57,11 +57,11 @@
   <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="top_level_timing_summary_postroute_physopted.pb"/>
   <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="top_level_timing_summary_postroute_physopted.rpx"/>
   <File Type="POSTROUTE-PHYSOPT-BUS-SKEW" Name="top_level_bus_skew_postroute_physopted.rpt"/>
-  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="top_level_bus_skew_postroute_physopted.pb"/>
   <File Type="BG-BIT" Name="top_level.bit"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="top_level_bus_skew_postroute_physopted.pb"/>
   <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="top_level_bus_skew_postroute_physopted.rpx"/>
-  <File Type="BITSTR-RBT" Name="top_level.rbt"/>
   <File Type="BITSTR-NKY" Name="top_level.nky"/>
+  <File Type="BITSTR-BMM" Name="top_level_bd.bmm"/>
   <File Type="PDI-FILE" Name="top_level.pdi"/>
   <File Type="RCFI_FILE" Name="top_level.rcfi"/>
   <File Type="CFI_FILE" Name="top_level.cfi"/>
@@ -75,7 +75,11 @@
   <File Type="BG-DRC" Name="top_level.drc"/>
   <File Type="RDI-RDI" Name="top_level.vdi"/>
   <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
-  <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
+  <File Type="ROUTE-RQS" Name="top_level_routed.rqs"/>
+  <File Type="POSTROUTE-PHYSOPT-RQS" Name="top_level_postroute_physopted.rqs"/>
+  <File Type="ROUTE-RQS-RPT" Name="route_report_qor_suggestions_0.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-RQS-RPT" Name="postroute_physopt_report_qor_suggestions_0.rpt"/>
+  <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/bcd_to_7seg.vhd">
       <FileInfo>
@@ -134,9 +138,7 @@
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2020">
-      <Desc>Default settings for Implementation.</Desc>
-    </StratHandle>
+    <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2020"/>
     <Step Id="init_design"/>
     <Step Id="opt_design"/>
     <Step Id="power_opt_design"/>
